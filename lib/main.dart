@@ -9,8 +9,9 @@ void main() {
 }
 
 class Myapp extends StatelessWidget {
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 400, 200];
+  final List<String> entries = <String>['A', 'B', 'C', 'D', 'E'];
+  // NB: growable_array error return if {entries.length != colorCodes.length}
+  final List<int> colorCodes = <int>[600, 400, 200, 100, 90];
 
   Myapp({super.key});
   @override
