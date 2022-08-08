@@ -1,51 +1,35 @@
 import 'package:flutter/material.dart';
 
-// This example uses the default constructor for ListView
-// which takes an explicit List<widget> of children.
-// This listView's children are made up of containers with Text
+// This example mirrors the previous one, creating the same list using
+// ListView.builder constructor.
+// Using the IndexedWidgetBuilder,
+// children are built lazily and can be infinite in number
 void main() {
-  runApp(const MyApp());
+  runApp(Myapp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Myapp extends StatelessWidget {
+  final List<String> entries = <String>['A', 'B', 'C'];
+  final List<int> colorCodes = <int>[600, 400, 200];
 
-  // This widget is the root of your application.
+  Myapp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        body: Center(
-          child: ListView(
-            padding: const EdgeInsets.all(8.0),
-            children: <Widget>[
-              Container(
-                height: 50.0,
-                color: Colors.amber[600],
-                child: const Center(
-                  child: Text('Entry A'),
-                ),
-              ),
-              Container(
-                height: 50,
-                color: Colors.amber[400],
-                child: const Center(child: Text('Entry B')),
-              ),
-              Container(
-                height: 50,
-                color: Colors.amber[200],
-                child: const Center(
-                  child: Text('Entry C'),
-                ),
-              )
-            ],
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: Scaffold(
+          body: Center(
+            child: ListView.builder(
+              itemCount: entries.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 50,
+                  color: Colors.amber[colorCodes[index]],
+                  child: Center(child: Text('Entry ${entries[index]}')),
+                );
+              },
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }
