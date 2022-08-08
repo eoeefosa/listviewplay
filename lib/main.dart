@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// This example uses the default constructor for ListView
+// which takes an explicit List<widget> of children.
+// This listView's children are made up of containers with Text
 void main() {
   runApp(const MyApp());
 }
@@ -16,30 +19,33 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-          body: ListView(
-        padding: const EdgeInsets.all(8.0),
-        children: [
-          Container(
-            height: 50.0,
-            color: Colors.amber[600],
-            child: const Center(
-              child: Text('Entry A'),
-            ),
+        body: Center(
+          child: ListView(
+            padding: const EdgeInsets.all(8.0),
+            children: <Widget>[
+              Container(
+                height: 50.0,
+                color: Colors.amber[600],
+                child: const Center(
+                  child: Text('Entry A'),
+                ),
+              ),
+              Container(
+                height: 50,
+                color: Colors.amber[400],
+                child: const Center(child: Text('Entry B')),
+              ),
+              Container(
+                height: 50,
+                color: Colors.amber[200],
+                child: const Center(
+                  child: Text('Entry C'),
+                ),
+              )
+            ],
           ),
-          Container(
-            height: 50,
-            color: Colors.amber[400],
-            child: const Center(child: Text('Entry B')),
-          ),
-          Container(
-            height: 50,
-            color: Colors.amber[200],
-            child: const Center(
-              child: Text('Entry C'),
-            ),
-          )
-        ],
-      )),
+        ),
+      ),
     );
   }
 }
