@@ -3,14 +3,9 @@ import 'package:flutter/material.dart';
 // This example uses the default constructor for ListView
 // which takes an explicit List<widget> of children.
 // This listView's children are made up of containers with Text
-// void main() {
-// runApp(const MyApp());
-// }
+class ListviewDefaultconstructor extends StatelessWidget {
+  const ListviewDefaultconstructor({super.key});
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
